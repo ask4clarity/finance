@@ -88,7 +88,7 @@ def buy():
             return apology("insufficient funds", 400)
 
         else:
-            db.execute("INSERT IGNORE INTO symbols (company, symbol) VALUES (:company, :symbol)", company=stock["name"], symbol=stock["symbol"])
+            db.execute("INSERT OR IGNORE INTO symbols (company, symbol) VALUES (:company, :symbol)", company=stock["name"], symbol=stock["symbol"])
 
             db.execute("INSERT INTO portfolio (symbol_id, user_id, shares, transacted, price) VALUES ((SELECT id FROM symbols WHERE company = :company), :id, :shares, :transacted, :price)", company=stock["name"], id=session["user_id"], shares=shares, transacted=transacted, price=stock["price"])
 
