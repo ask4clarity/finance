@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cs50 = "*"
+gunicorn = "*"
+psycopg2 = "*"
+requests = "*"
+Flask = "*"
+Flask-Session = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
